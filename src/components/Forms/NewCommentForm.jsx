@@ -28,14 +28,16 @@ export default async function NewCommentForm({ blogid }) {
           <legend>New Comment</legend>
           <div className={style.form}>
             <label htmlFor="name">Your Name:</label>
-            <input name="name" />
+            <input name="name" className={style.formInput} />
           </div>
           <div className={style.form}>
             <label htmlFor="comment">Comment:</label>
-            <textarea name="comment" />
+            <textarea name="comment" className={style.formInput} />
           </div>
         </fieldset>
-        <button type="submit">Submit</button>
+        <button type="submit" className={style.formButton}>
+          Submit
+        </button>
       </form>
     </>
   );

@@ -1,6 +1,7 @@
 import { db } from "@/utils/dbConnection.js";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import style from "./newpost.module.css";
 
 export default async function NewPost() {
   async function handleSubmit(formData) {
@@ -36,20 +37,21 @@ export default async function NewPost() {
       <form action={handleSubmit}>
         <fieldset>
           <legend>New Post</legend>
-          <div>
+          <div className={style.form}>
             <label htmlFor="title">Title:</label>
             <input name="title" className="border-black border-1" />
           </div>
-          <div>
+          <div className={style.form}>
             <label htmlFor="content">Content:</label>
             <textarea name="content" className="border-black border-1" />
           </div>
-          <div>
+          <div className={style.form}>
             <label htmlFor="url">Link:</label>
             <input name="url" className="border-black border-1" />
           </div>
-          <div>
-            <select name="category_id">
+          <div className={style.form}>
+            <label htmlFor="category_id">Category:</label>
+            <select name="category_id" className="border-black border-1">
               {categories.map((cat) => {
                 return (
                   <option key={cat.id} name="category_id" value={cat.id}>
@@ -60,7 +62,9 @@ export default async function NewPost() {
             </select>
           </div>
 
-          <button type="submit">Submit</button>
+          <button type="submit" className={style.formButton}>
+            Submit
+          </button>
         </fieldset>
       </form>
     </>

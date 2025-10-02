@@ -39,8 +39,8 @@ export default async function BlogPost({ params }) {
           commentsData.map((comment) => {
             return (
               <div key={comment.id}>
-                <p>{comment.name}</p>
-                <p>{comment.comment}</p>
+                <p>User: {comment.name}</p>
+                <p>Comment: {comment.comment}</p>
               </div>
             );
           })
