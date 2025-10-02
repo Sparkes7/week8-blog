@@ -19,7 +19,7 @@ export default function NavBar() {
       <Link
         href="/blog"
         className={
-          pathname === "/blog"
+          pathname.includes("/blog")
             ? " bg-blue-700 border-b-5 border-b-blue-700"
             : " border-b-5 border-b-blue-700"
         }
@@ -29,7 +29,7 @@ export default function NavBar() {
       <Link
         href="/contact"
         className={
-          pathname === "/contact"
+          pathname.includes("/contact")
             ? " bg-yellow-700 border-b-5 border-b-yellow-700"
             : " border-b-5 border-b-yellow-700"
         }

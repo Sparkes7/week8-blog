@@ -2,7 +2,7 @@
 
 ## Requirements
 
-🎯✅ Display all posts on the page, with an option to sort them in ascending or descending order.
+🎯 Display all posts on the page, with an option to sort them in ascending or descending order.
 🎯✅ Create a SQL schema for a posts table and a comments table, with the comments being connected to the posts table with a foreign key.
 🎯 Create a delete button on posts that allows users to delete the post from the database.
 🎯✅ Create a form which saves comments to a dedicated comments table, with the comments being connected to the posts table with a foreign key.

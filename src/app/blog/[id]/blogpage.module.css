@@ -1,0 +1,32 @@
+.contentContainer {
+  padding: 0 15%;
+  padding-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newCommentContainer {
+  padding: 0 15%;
+  margin-top: 2rem;
+}
+
+.commentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delCommentBtn {
+  font-size: var(--text-xs);
+  background-color: #970f0f;
+  color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 0.3rem 0.8rem;
+  &:hover {
+    background-color: red;
+  }
+}

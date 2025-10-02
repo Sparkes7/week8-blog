@@ -2,6 +2,7 @@ import { db } from "@/utils/dbConnection.js";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import style from "./newpost.module.css";
+import Link from "next/link";
 
 export default async function NewPost() {
   async function handleSubmit(formData) {
@@ -34,6 +35,12 @@ export default async function NewPost() {
 
   return (
     <>
+      <div className={`splash bg-blue-700`}>New Blog Post</div>
+      <div className={style.backToBlogDiv}>
+        <Link href="/blog" className={style.backToBlogBtn}>
+          Back To Posts
+        </Link>
+      </div>
       <form action={handleSubmit}>
         <fieldset>
           <legend>New Post</legend>
