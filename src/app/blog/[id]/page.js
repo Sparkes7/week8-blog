@@ -1,8 +1,10 @@
-import { db } from "@/app/utils/dbConnection";
+import { db } from "@/utils/dbConnection";
 import Image from "next/image";
+import NewCommentForm from "@/components/Forms/NewCommentForm";
 
 export default async function BlogPost({ params }) {
   const myParams = await params;
+
   const postsResponse = await db.query(
     `SELECT posts.title, posts.content, posts.url FROM posts WHERE posts.id = $1`,
     [myParams.id]
@@ -29,16 +31,22 @@ export default async function BlogPost({ params }) {
           height={250}
         />
       </div>
+      <div className="">
+        <NewCommentForm blogid={myParams.id} />
+      </div>
       <div>
-        comments:
-        {commentsData.map((comment) => {
-          return (
-            <div key={comment.id}>
-              <p>{comment.name}</p>
-              <p>{comment.comment}</p>
-            </div>
-          );
-        })}
+        {commentsData && commentsData.length > 0 ? (
+          commentsData.map((comment) => {
+            return (
+              <div key={comment.id}>
+                <p>{comment.name}</p>
+                <p>{comment.comment}</p>
+              </div>
+            );
+          })
+        ) : (
+          <p>Be the first to leave a comment!</p>
+        )}
       </div>
     </>
   );

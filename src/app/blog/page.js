@@ -1,4 +1,4 @@
-import { db } from "../utils/dbConnection";
+import { db } from "../../utils/dbConnection";
 import Link from "next/link";
 import style from "./blog.module.css";
 

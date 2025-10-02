@@ -1,4 +1,4 @@
-import { db } from "@/app/utils/dbConnection.js";
+import { db } from "@/utils/dbConnection.js";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
