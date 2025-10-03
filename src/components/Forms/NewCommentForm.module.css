@@ -13,6 +13,7 @@
 
 .formInput {
   border: 1px solid black;
+  padding: 0.5ex;
 }
 
 .formButton {
@@ -22,4 +23,7 @@
   border: 1px solid black;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
+  &:hover {
+    background-color: var(--color-blue-500);
+  }
 }

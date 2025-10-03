@@ -17,12 +17,13 @@ export default async function NewPost() {
     };
 
     db.query(
-      `INSERT INTO posts (title, content, category_id, url) VALUES ($1, $2, $3, $4)`,
+      `INSERT INTO posts (title, content, category_id, url, created) VALUES ($1, $2, $3, $4, $5)`,
       [
         formValues.title,
         formValues.content,
         formValues.category_id,
         formValues.url,
+        Date.now(),
       ]
     );
 
@@ -45,26 +46,39 @@ export default async function NewPost() {
         <fieldset className="flex flex-col gap-6">
           <legend className="text-center text-2xl">Create A New Post</legend>
           <div className={style.formGroup}>
-            <label htmlFor="title">Title:</label>
-            <input name="title" className="border-black border-1 p-[0.5ex]" />
-          </div>
-          <div className={style.formGroup}>
-            <label htmlFor="content">Content:</label>
-            <textarea
-              name="content"
+            <label htmlFor="title">
+              Title: <span className="text-red-600">*</span>
+            </label>
+            <input
+              name="title"
               className="border-black border-1 p-[0.5ex]"
+              required
             />
           </div>
           <div className={style.formGroup}>
-            <label htmlFor="url">Link:</label>
+            <label htmlFor="content">
+              Content: <span className="text-red-600">*</span>
+            </label>
+            <textarea
+              name="content"
+              className="border-black border-1 p-[0.5ex]"
+              required
+            />
+          </div>
+          <div className={style.formGroup}>
+            <label htmlFor="url">Image Link:</label>
             <input name="url" className="border-black border-1 p-[0.5ex]" />
           </div>
           <div className={style.formGroup}>
-            <label htmlFor="category_id">Category:</label>
+            <label htmlFor="category_id">
+              Category: <span className="text-red-600">*</span>
+            </label>
             <select
               name="category_id"
               className="border-black border-1 p-[0.5ex]"
+              required
             >
+              <option value="">-Select Category-</option>
               {categories.map((cat) => {
                 return (
                   <option key={cat.id} name="category_id" value={cat.id}>

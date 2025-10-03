@@ -3,6 +3,7 @@ import Image from "next/image";
 import NewCommentForm from "@/components/Forms/NewCommentForm";
 import style from "./blogpage.module.css";
 import { revalidatePath } from "next/cache";
+import Link from "next/link";
 
 export default async function BlogPost({ params }) {
   const myParams = await params;
@@ -33,16 +34,22 @@ export default async function BlogPost({ params }) {
   return (
     <>
       <div className={`splash bg-blue-700`}>{`Blog Post`}</div>
-
+      <div className={style.backToBlogDiv}>
+        <Link href="/blog" className={style.backToBlogBtn}>
+          Back To Posts
+        </Link>
+      </div>
       <div className={style.contentContainer}>
-        <h2>{postsData.title}</h2>
-        <p>{postsData.content}</p>
-        <Image
-          src={postsData.url}
-          alt={postsData.title}
-          width={800}
-          height={250}
-        />
+        <h2 className="text-3xl font-bold">{postsData.title}</h2>
+        <p className="text-zinc-600">{postsData.content}</p>
+        {postsData.url ? (
+          <Image
+            src={postsData.url}
+            alt={postsData.title}
+            width={800}
+            height={250}
+          />
+        ) : null}
       </div>
 
       <div className={style.newCommentContainer}>
