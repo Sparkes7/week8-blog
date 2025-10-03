@@ -57,6 +57,7 @@ export default async function BlogPost({ params }) {
       </div>
 
       <div className={style.newCommentContainer}>
+        <h3>Comments:</h3>
         {commentsData && commentsData.length > 0 ? (
           commentsData.map((comment) => {
             return (
