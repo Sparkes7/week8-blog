@@ -35,6 +35,9 @@ export default async function BlogPost({ params }) {
     <>
       <div className={`splash bg-blue-700`}>{`Blog Post`}</div>
       <div className={style.backToBlogDiv}>
+        <Link href={`/blog/${myParams.id}/edit`} className={style.editBtn}>
+          Edit Post
+        </Link>
         <Link href="/blog" className={style.backToBlogBtn}>
           Back To Posts
         </Link>
@@ -48,6 +51,7 @@ export default async function BlogPost({ params }) {
             alt={postsData.title}
             width={800}
             height={250}
+            draggable={false}
           />
         ) : null}
       </div>
@@ -57,13 +61,22 @@ export default async function BlogPost({ params }) {
           commentsData.map((comment) => {
             return (
               <div key={comment.id} className={style.commentContainer}>
-                <div>
-                  <p>User: {comment.name}</p>
-                  <p>Comment: {comment.comment}</p>
+                <div className="flex flex-row align-center">
+                  <Link
+                    href={`/blog/${myParams.id}/comment/${comment.id}/edit`}
+                    className={style.editCommentBtn}
+                  >
+                    Edit
+                  </Link>
+                  <div>
+                    <p>User: {comment.name}</p>
+                    <p>Comment: {comment.comment}</p>
+                  </div>
                 </div>
+
                 <div>
                   <form action={DeleteComment}>
-                    {/* FIGURE THIS OUT: HOW DO I PASS THE COMMENT ID INTO THIS FORM ACTION */}
+                    {/* ADDING THIS HIDDEN INPUT TO PASS THE COMMENT ID FEELS CHEAP, BUT IT WORKS I GUESS? #PROBLEMSOLVING */}
                     <input
                       name="id"
                       defaultValue={comment.id}

@@ -10,6 +10,7 @@
 .newCommentContainer {
   padding: 0 15%;
   margin-top: 2rem;
+  padding-bottom: 3rem;
 }
 
 .commentContainer {
@@ -31,6 +32,21 @@
   }
 }
 
+.editCommentBtn {
+  align-self: center;
+  margin-right: 0.5rem;
+  font-size: var(--text-xs);
+  background-color: var(--color-zinc-200);
+  color: rgb(0, 0, 0);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 0.3rem 0.8rem;
+  &:hover {
+    background-color: var(--color-zinc-400);
+  }
+}
+
 .backToBlogDiv {
   margin: 1rem 0rem;
   display: flex;
@@ -47,5 +63,18 @@
   padding: 0.3rem 0.8rem;
   &:hover {
     background-color: var(--color-blue-600);
+  }
+}
+
+.editBtn {
+  background-color: var(--color-zinc-200);
+  color: black;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 0.3rem 0.8rem;
+  margin-right: 1rem;
+  &:hover {
+    background-color: var(--color-zinc-300);
   }
 }
