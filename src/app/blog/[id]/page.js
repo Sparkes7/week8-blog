@@ -2,6 +2,7 @@ import { db } from "@/utils/dbConnection";
 import Image from "next/image";
 import NewCommentForm from "@/components/Forms/NewCommentForm";
 import style from "./blogpage.module.css";
+import { revalidatePath } from "next/cache";
 
 export default async function BlogPost({ params }) {
   const myParams = await params;
@@ -20,10 +21,13 @@ export default async function BlogPost({ params }) {
 
   //const commentsPost
 
-  async function DeleteComment(id) {
+  async function DeleteComment(formData) {
     "use server";
+    const id = formData.get("id");
     console.log(id);
-    //db.query(`DELETE FROM comments WHERE id = $1`, [id]);
+    db.query(`DELETE FROM comments WHERE id = $1`, [id]);
+
+    revalidatePath(`/blog/${myParams.id}`);
   }
 
   return (
@@ -53,6 +57,12 @@ export default async function BlogPost({ params }) {
                 <div>
                   <form action={DeleteComment}>
                     {/* FIGURE THIS OUT: HOW DO I PASS THE COMMENT ID INTO THIS FORM ACTION */}
+                    <input
+                      name="id"
+                      defaultValue={comment.id}
+                      readOnly
+                      hidden
+                    />
                     <button type="submit" className={style.delCommentBtn}>
                       Delete
                     </button>

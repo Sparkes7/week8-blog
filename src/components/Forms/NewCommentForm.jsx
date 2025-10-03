@@ -23,12 +23,12 @@ export default async function NewCommentForm({ blogid }) {
   }
   return (
     <>
-      <form action={handleSubmit}>
-        <div className={style.form}>
+      <form action={handleSubmit} className={style.form}>
+        <div className={style.formGroup}>
           <label htmlFor="name">Your Name:</label>
           <input name="name" className={style.formInput} />
         </div>
-        <div className={style.form}>
+        <div className={style.formGroup}>
           <label htmlFor="comment">Comment:</label>
           <textarea name="comment" className={style.formInput} />
         </div>

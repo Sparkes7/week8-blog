@@ -1,7 +1,14 @@
 .form {
+  width: 80%;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
 }
 
 .formInput {

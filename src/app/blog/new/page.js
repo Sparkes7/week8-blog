@@ -41,24 +41,30 @@ export default async function NewPost() {
           Back To Posts
         </Link>
       </div>
-      <form action={handleSubmit}>
-        <fieldset>
-          <legend>New Post</legend>
-          <div className={style.form}>
+      <form action={handleSubmit} className={style.form}>
+        <fieldset className="flex flex-col gap-6">
+          <legend className="text-center text-2xl">Create A New Post</legend>
+          <div className={style.formGroup}>
             <label htmlFor="title">Title:</label>
-            <input name="title" className="border-black border-1" />
+            <input name="title" className="border-black border-1 p-[0.5ex]" />
           </div>
-          <div className={style.form}>
+          <div className={style.formGroup}>
             <label htmlFor="content">Content:</label>
-            <textarea name="content" className="border-black border-1" />
+            <textarea
+              name="content"
+              className="border-black border-1 p-[0.5ex]"
+            />
           </div>
-          <div className={style.form}>
+          <div className={style.formGroup}>
             <label htmlFor="url">Link:</label>
-            <input name="url" className="border-black border-1" />
+            <input name="url" className="border-black border-1 p-[0.5ex]" />
           </div>
-          <div className={style.form}>
+          <div className={style.formGroup}>
             <label htmlFor="category_id">Category:</label>
-            <select name="category_id" className="border-black border-1">
+            <select
+              name="category_id"
+              className="border-black border-1 p-[0.5ex]"
+            >
               {categories.map((cat) => {
                 return (
                   <option key={cat.id} name="category_id" value={cat.id}>
