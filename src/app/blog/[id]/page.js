@@ -18,7 +18,7 @@ export default async function BlogPost({ params }) {
     [myParams.id]
   );
   const commentsData = commentsResponse.rows;
-  console.log(commentsData);
+  //console.log(commentsData);
 
   //const commentsPost
 

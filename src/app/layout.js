@@ -4,8 +4,9 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
 export const metadata = {
-  title: "Travel Blog",
-  description: "A travel blog",
+  title: "Hiking the Atlas",
+  description:
+    "A hiking blog by Will Sparkes featuring hiking journals, gear reviews and hiking news.",
 };
 
 const montserrat = Montserrat({

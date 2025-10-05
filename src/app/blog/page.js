@@ -9,7 +9,7 @@ export default async function Blog({ searchParams }) {
   );
   //console.log(query.rows);
   const posts = query.rows;
-  console.log(posts);
+  //console.log(posts);
 
   //console.log(Date.now());
 

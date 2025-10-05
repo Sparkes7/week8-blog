@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export default async function NewCommentForm({ blogid }) {
-  console.log(`params: ${blogid}`);
+  //console.log(`params: ${blogid}`);
   async function handleSubmit(formData) {
     "use server";
 
@@ -13,7 +13,7 @@ export default async function NewCommentForm({ blogid }) {
       comment: formData.get("comment"),
       post_id: blogid,
     };
-    console.log(formValues);
+    //console.log(formValues);
     db.query(
       `INSERT INTO comments (name, comment, post_id) VALUES ($1, $2, $3)`,
       [formValues.name, formValues.comment, formValues.post_id]
