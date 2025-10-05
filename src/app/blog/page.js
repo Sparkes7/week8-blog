@@ -53,11 +53,11 @@ export default async function Blog({ searchParams }) {
             <div key={i} className={style.post}>
               <div className={style.postHeading}>
                 <Link href={`/blog/${post.id}`}>{` ${post.title} `}</Link>
-                <span className={`${style.postHeadingCategory}`}>
-                  {`${post.cat_name.toUpperCase()}`}
-                </span>
+                <span
+                  className={`${style.postHeadingCategory} cat`}
+                >{`${post.cat_name.toUpperCase()}`}</span>
               </div>
-              <div className="post-preview">
+              <div className="flex flex-col pt-3 gap-2">
                 <p className="text-zinc-600 text-sm">
                   {`${post.content.slice(0, 280)}... `}
                   <Link href={`/blog/${post.id}`} className={style.readMore}>

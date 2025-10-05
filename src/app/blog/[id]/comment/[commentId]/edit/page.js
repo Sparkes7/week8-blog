@@ -1,6 +1,8 @@
 import { db } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import Link from "next/link";
+import style from "./editcomment.module.css";
 
 export default async function editComment({ params }) {
   const myParams = await params;
@@ -38,6 +40,11 @@ export default async function editComment({ params }) {
   return (
     <>
       <div className={`splash bg-blue-700 mb-5`}>Edit Comment</div>
+      <div className={style.backToBlogDiv}>
+        <Link href="/blog" className={style.backToBlogBtn}>
+          Back To Posts
+        </Link>
+      </div>
       <form
         action={updateComment}
         className="w-[80%] m-auto flex flex-col gap-5"

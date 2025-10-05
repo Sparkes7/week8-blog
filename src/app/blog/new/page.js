@@ -46,7 +46,7 @@ export default async function NewPost() {
         <fieldset className="flex flex-col gap-6">
           <legend className="text-center text-2xl">Create A New Post</legend>
           <div className={style.formGroup}>
-            <label htmlFor="title">
+            <label htmlFor="title" className="font-bold">
               Title: <span className="text-red-600">*</span>
             </label>
             <input
@@ -56,21 +56,28 @@ export default async function NewPost() {
             />
           </div>
           <div className={style.formGroup}>
-            <label htmlFor="content">
+            <label htmlFor="content" className="font-bold">
               Content: <span className="text-red-600">*</span>
             </label>
             <textarea
               name="content"
               className="border-black border-1 p-[0.5ex]"
+              rows={5}
               required
             />
           </div>
           <div className={style.formGroup}>
-            <label htmlFor="url">Image Link:</label>
+            <label htmlFor="url" className="font-bold">
+              Image Link:
+              <sup className="font-light text-zinc-600 italic text-xs">
+                {" "}
+                optional
+              </sup>
+            </label>
             <input name="url" className="border-black border-1 p-[0.5ex]" />
           </div>
           <div className={style.formGroup}>
-            <label htmlFor="category_id">
+            <label htmlFor="category_id" className="font-bold">
               Category: <span className="text-red-600">*</span>
             </label>
             <select

@@ -1,6 +1,8 @@
 import { db } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import Link from "next/link";
+import style from "./editpost.module.css";
 
 export default async function editBlog({ params }) {
   const myParams = await params;
@@ -40,6 +42,11 @@ export default async function editBlog({ params }) {
   return (
     <>
       <div className={`splash bg-blue-700 mb-5`}>Edit Post</div>
+      <div className={style.backToBlogDiv}>
+        <Link href="/blog" className={style.backToBlogBtn}>
+          Back To Posts
+        </Link>
+      </div>
       <form action={updatePost} className="flex flex-col w-[80%] m-auto gap-5 ">
         <div className="flex flex-col">
           <label htmlFor="title" className="font-bold">
@@ -65,8 +72,9 @@ export default async function editBlog({ params }) {
         </div>
         <div className="flex flex-col">
           <label htmlFor="url" className="font-bold">
-            Image Link:{" "}
+            Image Link:
             <sup className="font-light text-zinc-600 italic text-xs">
+              {" "}
               optional
             </sup>
           </label>
