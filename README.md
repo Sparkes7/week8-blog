@@ -10,7 +10,7 @@
 
 🎯✅ Create a delete button on posts that allows users to delete the post from the database.
 
-- Comments can be deleted as I didn't want the posts themselves to be deleted.
+- Comments can be deleted as I didn't want the posts themselves to be deleted, but functionality would be exactly the same
 
 🎯✅ Create a form which saves comments to a dedicated comments table, with the comments being connected to the posts table with a foreign key.
 
